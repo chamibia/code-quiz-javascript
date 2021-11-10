@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Javascript Code Quiz</title>
 </head>
 <body>
- <div id="quiz"></div>
- <button id="submit">Submit</button>
- <div id="results"></div>   
+ <div id="container">
+<div id="start"> 
+    Start Quiz!
+    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds</p>
+</div>
+<div id="quiz" style="display: none">
+<div id="questions"></div>
+    <div id="choices"></div>
+    <div class="choice" id="a" 
+    onclick="checkAnswer('a')"></div>
+    <div class="choice" id="b" 
+    onclick="checkAnswer('b')"></div>
+    <div class="choice" id="c" 
+    onclick="checkAnswer('c')"></div>
+    <div class="choice" id="d" 
+    onclick="checkAnswer('d')"></div>
+</div>
+<div id="timer"></div>
+    <div id="score" style="display:none"></div>
+    </div>
+ <script src="script.js"></script>
 </body>
 </html>
