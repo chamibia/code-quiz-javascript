@@ -8,26 +8,33 @@
     <title>Javascript Code Quiz</title>
 </head>
 <body>
- <div id="container">
-<div id="start"> 
-    Start Quiz!
-    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds</p>
-</div>
-<div id="quiz" style="display: none">
-<div id="questions"></div>
-    <div id="choices"></div>
-    <div class="choice" id="a" 
-    onclick="checkAnswer('a')"></div>
-    <div class="choice" id="b" 
-    onclick="checkAnswer('b')"></div>
-    <div class="choice" id="c" 
-    onclick="checkAnswer('c')"></div>
-    <div class="choice" id="d" 
-    onclick="checkAnswer('d')"></div>
-</div>
-<div id="timer"></div>
-    <div id="score" style="display:none"></div>
+<div id="container">
+
+    <button class="title"> START QUIZ </button>
+    
+        
+    
+    <div id="timer">
+        <p class="time"> Timer: </p>
     </div>
+   
+    <section id="startquiz">
+        <div id="questions"></div>
+        
+        <p class="choice" id="A" 
+        onclick="checkAnswer('A')"></p>
+        
+        <p class="choice" id="B" 
+        onclick="checkAnswer('B')"></p>
+        
+        <p class="choice" id="C" 
+        onclick="checkAnswer('C')"></p>
+        
+        <p class="choice" id="D" 
+        onclick="checkAnswer('D')"></p>
+    </section>
+    <p id="score"></p>
+</div>
  <script src="script.js"></script>
 </body>
 </html>
