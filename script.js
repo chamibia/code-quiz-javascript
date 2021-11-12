@@ -1,36 +1,14 @@
-//select divs for getElementById
-var questions = document.getElementById("questions"); 
-var choices = document.getElementById("choices");
-var choiceA = document.getElementById("choiceA"); 
-var choiceB = document.getElementById("choiceB");
-var choiceC = document.getElementById("choiceC");
-var choiceD = document.getElementById("choiceD");
+//select all elements 
 var timer = document.getElementById("timer");
+var question = document.getElementById("questions");
+var startquiz = document.getElementsByClassName("startquiz");
+var choices = document.getElementById("choice");
+var choiceA = document.getElementById("A"); 
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var choiceD = document.getElementById("D");
 var score = document.getElementById("score"); 
 
-//create click function to start quiz 
-document.getElementById("title").addEventListener("click", timer);
-
-function startQuiz(){
-
-}
-
-//create click function to start timer 
-function timer(){
-    var sec = 30; 
-    var timer = setInterval(function(){
-        document.getElementById("timerSec").innerHTML='00' + sec; 
-        sec--; 
-        if (sec < 0){ 
-            clearInterval(timer);
-        }
-    }, 1000);
-}
-
-
-
-
-//set score to zero
 
 //create array with questions and answers 
 var questions = [
@@ -79,6 +57,33 @@ var questions = [
     }
 ];
 
+var start = document.getElementById("title");
+start.addEventListener("click", test); 
+
+
+function test() {
+
+    for (var i = 0; i < 4; i++){//start loop
+
+        //print
+        question.innerHTML = questions[i].question;
+
+        //print answers
+        choiceA.innerHTML = questions[i].answers.a;    
+        choiceB.innerHTML = questions[i].answers.b;
+        choiceC.innerHTML = questions[i].answers.c;
+        choiceD.innerHTML = questions[i].answers.d;    
+        
+
+        // now how to wait for users response/interaction  
+              
+    }//end of for loop
+
+
+}
+
+
+
 //create click function for multiple choice questions
 
 //create for loop to go thru questions
@@ -96,26 +101,6 @@ var questions = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //enter quiz element
 
 // function start() {
@@ -123,10 +108,6 @@ var questions = [
 //}
 
 
-
-function test() {
-    question.innerHTML = myQuestions[0].question;
-}
 
 
 

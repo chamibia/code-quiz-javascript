@@ -16,7 +16,7 @@ body {
 
 }
 
-.title {
+#title {
 	justify-content: space-between;	
 	flex: 1;
 	margin: 10px auto;
@@ -24,8 +24,9 @@ body {
 	height: 10%;
 	font-size: 20px;
 	font-style: bold oblique;
-	color: black; 
+	color: white; 
 	border: solid 1px black;
+	background-color: darkblue;
 }
 #timer {
 	flex-basis: 5px;
@@ -44,15 +45,19 @@ body {
 	border: solid 1px black;
 }
 
-#startquiz {
+.startquiz {
 	flex: 3; 
 	padding: 20px;
 	width: 400px;
 	height: 450px;
 	margin: 30px auto;
-	border: dashed 2px black;
+	border: solid 2px black;
 
 }
+
+
+
+
 
 
 
