@@ -1,88 +1,214 @@
-//select all elements 
-var timer = document.getElementById("timer");
-var question = document.getElementById("questions");
-var startquiz = document.getElementsByClassName("startquiz");
-var choices = document.getElementById("choice");
-var choiceA = document.getElementById("A"); 
-var choiceB = document.getElementById("B");
-var choiceC = document.getElementById("C");
-var choiceD = document.getElementById("D");
-var score = document.getElementById("score"); 
-
-
 //create array with questions and answers 
-var questions = [
+var myQuestions = [
     { 
         question: "Commonly used data types DO NOT include: ",  
-        answers: {
-            a: 'strings', 
-            b: 'booleans', 
-            c: 'alerts', 
-            d: 'numbers', 
-        }, 
-    correctAnswer: 'b: booleans'
+        answers: ['a: strings', 'b: booleans',  'c: number', 'd: numbers'], 
+        correctAnswer: 'b: booleans'
     }, 
 
     {
         question: "Arrays in JavaScript can be used to store ________.", 
-        answers: { 
-
-            a: 'numbers and strings', 
-            b: 'other arrays', 
-            c: 'booleans', 
-            d: 'all of the above' 
-        }, 
+        answers: ['a: numbers and strings', 'b: other arrays', 'c: booleans', 'd: all of the above'], 
         correctAnswer: 'd: all of the above'
     }, 
     {
        question: "String values must be enclosed within ______ when being assigned to variables.", 
-       answers: { 
-
-        a: 'commas', 
-        b: 'curly brackets', 
-        c: 'quotes', 
-        d: 'parenthesis' 
-       }, 
+       answers: ['a: commas', 'b: curly brackets', 'c: quotes', 'd: parenthesis'],  
        correctAnswer: 'b: curly brackets'
     }, 
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is: ",
-        answers: {
-            a: 'JavaScript', 
-            b: 'Terminal/bash', 
-            c: 'for loops', 
-            d: 'console.log' 
-        }, 
+        answers: [ 'a: JavaScript', 'b: Terminal/bash', 'c: for loops', 'd: console.log'], 
         correctAnswer: 'd: console.log'
     }
 ];
 
-var start = document.getElementById("title");
-start.addEventListener("click", test); 
+
+//select all global variables 
+var timer = document.getElementById("time");
+var score = document.getElementById("score");
+var mainContent = document.getElementById("mainContainer")
+var questionsContent = document.getElementById("question");
+var choicesContent = document.getElementsByClassName("choices");
+var instructions = document.getElementsByClassName("instructions");
+var start = document.getElementById("start-button");
 
 
-function test() {
+startButton.addEventListener("click", start); 
+function start() {
 
-    for (var i = 0; i < 4; i++){//start loop
+    startButton.setAttributes("class", "hidden");
+    setTime();
 
-        //print
-        question.innerHTML = questions[i].question;
-
-        //print answers
-        choiceA.innerHTML = questions[i].answers.a;    
-        choiceB.innerHTML = questions[i].answers.b;
-        choiceC.innerHTML = questions[i].answers.c;
-        choiceD.innerHTML = questions[i].answers.d;    
-        
-
-        // now how to wait for users response/interaction  
-              
-    }//end of for loop
-
+    isQuestionOne();
 
 }
 
+//create first question and choices 
+function isQuestionOne() {
+    questionsContent.innerHTML = "";
+    instructions.innerHTML = "";
 
+var questionEl = document.createElement("h1"); 
+questionEl.textContent = questionEl[0].myQuestion; 
+questionEl.className = "theQuest"; 
+questionsContent.append(questionEl);
+
+for(var i=0; i < myQuestions[0].answers.length; i++) {
+    var choices = document.createElement("li");
+    choices.setAttribute("id", myQuestions[0].answers[i]); 
+    choices.textContent = myQuestions[0].answers[i];
+    choicesContent.append(answers); 
+}
+
+choices.addEventListener("click", function (event) {
+    if (event.target.id === question[0].correctAnswer) {
+        console.log("correct"); 
+    } else {
+        console.log("incorrect"); 
+    }
+    isQuestionTwo (); 
+    }); 
+}
+
+//create second question and choices 
+function isQuestionTwo() {
+    questionsContent.innerHTML = ""; 
+    choicesContent.innerHTML = ""; 
+
+    var questionEl = document.createElement("h1");
+    questionEl.textContent = myQuestions[1].question;
+    questionEl.className = "myQuest";
+    questionsContent.append(questionEl);
+
+    for(var i=0; i < myQuestions[1].answers.length; i++) {
+        var choices = document.createElement("li"); 
+        choices.setAttribute("id", myQuestions[1].answers[i]);
+        choices.textContent = myQuestions[1].answers[i];
+        choicesContent.append(answers);
+    }
+    choices.addEventListener("click", function(event) {
+        if(event.target.id ===question[1].correctAnswer) {
+            console.log("correct");
+    
+        }else {
+            console.log("incorrect"); 
+        }
+        isQuestionThree (); 
+        }); 
+}
+//create third question and choices 
+function isQuestionThree() {
+    questionsContent.innerHTML = ""; 
+    choicesContent.innerHTML = ""; 
+
+    var questionEl = document.createElement("h1"); 
+    questionEl.textContent = myQuestions[2].question; 
+    questionEl.className = "myQuest"; 
+    questionsContent.append(questionEl); 
+
+    for(var i=o; i <myQuestions[2].answers.length; i++) {
+        var choices = docuement.createElement("li"); 
+        choices.setAttribute("id",myQuestions[2].answers[i]);
+        choices.textContent = myQuestions[2].answers[i]; 
+        choicesContent.append(answers);
+
+    }
+    choices.addEventListener("click", function (event) {
+        if(event.target.id === question[2].correctAnswer) {
+            console.log("correct");
+        }else {
+            console.log("incorrect");
+        }
+        isQuestionFour ();
+        }); 
+}
+
+//create fourth question and choices
+function isQuestionFour () {
+    questionsContent.innerHTML = "";
+    choicesContent.innerHTML = "";
+
+    var questionEl = document.createElement("h1");
+    questionEl.textContent = myQuestions[3].question; 
+    questionEl.className = "myQuest";
+    questionsContent.append(questionEl);
+
+    for(var i=0; i <myQuestions[3].answers.length; i++) {
+        var choices = document.createElement("li");
+        choices.setAttribute("id", myQuestions[3].answers[i]); 
+        choices.textContent = myQuestions[3].answers[i];
+        choicesContent.append(answers);
+    }
+    choices.addEventListener("click", function (event) {
+        if(event.target.id === question[3].correctAnswer) {
+            console.log("correct");
+        }else {
+            console.log("incorrect"); 
+        }
+        endGame();
+    });
+}
+
+function endGame() {
+    //clears previous page content
+    questionsContent.innerHTML = "";
+    choicesContent.innerHTML = "";
+
+    var questionEl = document.createElement("h1");
+    questionEl.textContent = "Quiz Completed!";
+    questionEl.className = "myQuest"; 
+    questionsContent.append(questionEl);
+
+    var final = document.createElement("p");
+    final.setAttribute("id", "final-score"); 
+    final.textContent = "Your final score is ______."; 
+    choicesContent.append(final); 
+
+    console.log("Quiz complete!"); 
+}
+
+var counter = 50; 
+var countdown = setInterval (function () {
+    counter--; 
+    if(counter === -1) {
+        clearInterval(countdown); 
+    }
+    timer.textContent = counter; 
+}, 1000); 
+  
+
+
+
+
+//var start = document.getElementById("title");
+//start.addEventListener("click", test); 
+
+
+//function test() {
+
+    //for (var i = 0; i < questions.length; i++){//start loop
+    
+        //print
+        //question.innerHTML = questions[1].question;
+
+        //print answers
+        //choiceA.innerHTML = questions[1].answers.a;    
+        //choiceB.innerHTML = questions[1].answers.b;
+        //choiceC.innerHTML = questions[1].answers.c;
+        //choiceD.innerHTML = questions[1].answers.d;    
+    
+
+    //end of for loop
+//startquiz.style.display = "none"; 
+//}; 
+
+
+
+// now how to wait for users response/interaction  
+//setTimeout(function () {
+        
+    //question()
 
 //create click function for multiple choice questions
 
