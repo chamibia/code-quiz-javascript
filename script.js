@@ -29,16 +29,18 @@ var timer = document.getElementById("time");
 var score = document.getElementById("score");
 var mainContent = document.getElementById("mainContainer")
 var questionIntro = document.getElementById("question");
-var choices = document.getElementsByClassName("choices");
+var choices = document.getElementById("choices");
 var instructions = document.getElementsByClassName("instructions");
 var startButton = document.querySelector("#start-button"); 
 var score = 0; 
 
 startButton.addEventListener("click", start); 
 
+
+
 function start() {
 
-    startButton.setAttributes("class", "hidden"); 
+    //startButton.setAttribute("class", "hidden"); 
 
     setTime();
 
@@ -49,25 +51,39 @@ function isQuestionOne() {
     questionIntro.innerHTML = "";
     instructions.innerHTML = "";
 
-var questionEl = document.createElement("h1"); 
-questionEl.textContent = myQuestions.questions[0]; 
-questionEl.className = "theQuest"; 
-questionIntro.append(questionEl);
+    var questionEl = document.createElement("h1"); 
+    questionEl.setAttribute("id", "theQuest");
+    questionIntro.appendChild(questionEl);
+    document.getElementById("theQuest").textContent = myQuestions[0].questions;
 
-for(var i=0; i < myQuestions[0].answers.length; i++) {
-    var choices = document.createElement("li");
-    choices.setAttribute("id", myQuestions[0].answers[i]); 
-    choices.textContent = myQuestions[0].answers[i];
-    choices.append(answers); 
-}
+    //old 
+    // questionEl.textContent = myQuestions.questions[0]; 
+    // questionEl.className = "theQuest"; 
+    // questionIntro.append(questionEl.innerHTML);
 
-choices.addEventListener("click", function (event) {
-    if (event.target.id === questions[0].correctAnswer) {
-        console.log("correct"); 
-    } else {
-        console.log("incorrect"); 
+    for(var i=0; i < myQuestions[0].answers.length; i++) {
+        var cEle = document.createElement("li");
+        cEle.setAttribute("id", myQuestions[3].answers[i]); 
+        choices.appendChild(cEle); 
+        cEle.append(myQuestions[3].answers[i]);
+        // choices.append(answers);
+        
+        
+        // var cEle = document.createElement("li");
+        // choices.setAttribute("id", myQuestions[0].answers[i]); 
+        // document.body.appendChild(choices); 
+        // choices.textContent = myQuestions[0].answers[i];
+        // choices.append(myQuestions[0].answers[i]); 
+
     }
-    isQuestionTwo (); 
+
+    choices.addEventListener("click", function (event) {
+        if (event.target.id === myQuestions[0].correctAnswer) {
+            console.log("correct"); 
+        } else {
+            console.log("incorrect"); 
+        }
+        isQuestionTwo (); 
     }); 
 }
 
@@ -82,13 +98,14 @@ function isQuestionTwo() {
     questionIntro.append(questionEl);
 
     for(var i=0; i < myQuestions[1].answers.length; i++) {
-        var choices = document.createElement("li"); 
-        choices.setAttribute("id", myQuestions[1].answers[i]);
-        choices.textContent = myQuestions[1].answers[i];
-        choices.append(answers);
+        var cEle = document.createElement("li");
+        cEle.setAttribute("id", myQuestions[3].answers[i]); 
+        choices.appendChild(cEle); 
+        cEle.append(myQuestions[3].answers[i]);
+        // choices.append(answers);
     }
     choices.addEventListener("click", function(event) {
-        if(event.target.id === questions[1].correctAnswer) {
+        if (event.target.id === myQuestions[1].correctAnswer) {
             console.log("correct");
     
         }else {
@@ -107,15 +124,16 @@ function isQuestionThree() {
     questionEl.className = "myQuest"; 
     questionIntro.append(questionEl); 
 
-    for(var i=o; i <myQuestions[2].answers.length; i++) {
-        var choices = docuement.createElement("li"); 
-        choices.setAttribute("id",myQuestions[2].answers[i]);
-        choices.textContent = myQuestions[2].answers[i]; 
-        choices.append(answers);
+    for(var i=0; i <myQuestions[2].answers.length; i++) {
+        var cEle = document.createElement("li");
+        cEle.setAttribute("id", myQuestions[2].answers[i]); 
+        choices.appendChild(cEle); 
+        cEle.append(myQuestions[3].answers[i]);
+        // choices.append(answers);
 
     }
     choices.addEventListener("click", function (event) {
-        if(event.target.id === question[2].correctAnswer) {
+        if(event.target.id === myQuestions[2].correctAnswer) {
             console.log("correct");
         }else {
             console.log("incorrect");
@@ -134,14 +152,15 @@ function isQuestionFour () {
     questionEl.className = "myQuest";
     questionIntro.append(questionEl);
 
-    for(var i=0; i <myQuestions[3].answers.length; i++) {
-        var choices = document.createElement("li");
-        choices.setAttribute("id", myQuestions[3].answers[i]); 
-        choices.textContent = myQuestions[3].answers[i];
-        choices.append(answers);
+    for(var i=0; i < myQuestions[3].answers.length; i++) {
+        var cEle = document.createElement("li");
+        cEle.setAttribute("id", myQuestions[3].answers[i]); 
+        choices.appendChild(cEle); 
+        cEle.append(myQuestions[3].answers[i]);
+        // choices.append(answers);
     }
     choices.addEventListener("click", function (event) {
-        if(event.target.id === question[3].correctAnswer) {
+        if(event.target.id === myQuestions[3].correctAnswer) {
             console.log("correct");
         }else {
             console.log("incorrect"); 
@@ -168,6 +187,8 @@ function endGame() {
     console.log("Quiz complete!"); 
 }
 
+function setTime() {
+}
 var counter = 50; 
 var countdown = setInterval (function () {
     counter--; 
