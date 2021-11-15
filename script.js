@@ -1,23 +1,23 @@
 //create array with questions and answers 
 var myQuestions = [
     { 
-        question: "Commonly used data types DO NOT include: ",  
+        questions: "Commonly used data types DO NOT include: ",  
         answers: ['a: strings', 'b: booleans',  'c: number', 'd: numbers'], 
         correctAnswer: 'b: booleans'
     }, 
 
     {
-        question: "Arrays in JavaScript can be used to store ________.", 
+        questions: "Arrays in JavaScript can be used to store ________.", 
         answers: ['a: numbers and strings', 'b: other arrays', 'c: booleans', 'd: all of the above'], 
         correctAnswer: 'd: all of the above'
     }, 
     {
-       question: "String values must be enclosed within ______ when being assigned to variables.", 
+       questions: "String values must be enclosed within ______ when being assigned to variables.", 
        answers: ['a: commas', 'b: curly brackets', 'c: quotes', 'd: parenthesis'],  
        correctAnswer: 'b: curly brackets'
     }, 
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is: ",
+        questions: "A very useful tool used during development and debugging for printing content to the debugger is: ",
         answers: [ 'a: JavaScript', 'b: Terminal/bash', 'c: for loops', 'd: console.log'], 
         correctAnswer: 'd: console.log'
     }
@@ -28,41 +28,41 @@ var myQuestions = [
 var timer = document.getElementById("time");
 var score = document.getElementById("score");
 var mainContent = document.getElementById("mainContainer")
-var questionsContent = document.getElementById("question");
-var choicesContent = document.getElementsByClassName("choices");
+var questionIntro = document.getElementById("question");
+var choices = document.getElementsByClassName("choices");
 var instructions = document.getElementsByClassName("instructions");
-var start = document.getElementById("start-button");
-
+var startButton = document.querySelector("#start-button"); 
+var score = 0; 
 
 startButton.addEventListener("click", start); 
+
 function start() {
 
-    startButton.setAttributes("class", "hidden");
+    startButton.setAttributes("class", "hidden"); 
+
     setTime();
 
     isQuestionOne();
 
 }
-
-//create first question and choices 
 function isQuestionOne() {
-    questionsContent.innerHTML = "";
+    questionIntro.innerHTML = "";
     instructions.innerHTML = "";
 
 var questionEl = document.createElement("h1"); 
-questionEl.textContent = questionEl[0].myQuestion; 
+questionEl.textContent = myQuestions.questions[0]; 
 questionEl.className = "theQuest"; 
-questionsContent.append(questionEl);
+questionIntro.append(questionEl);
 
 for(var i=0; i < myQuestions[0].answers.length; i++) {
     var choices = document.createElement("li");
     choices.setAttribute("id", myQuestions[0].answers[i]); 
     choices.textContent = myQuestions[0].answers[i];
-    choicesContent.append(answers); 
+    choices.append(answers); 
 }
 
 choices.addEventListener("click", function (event) {
-    if (event.target.id === question[0].correctAnswer) {
+    if (event.target.id === questions[0].correctAnswer) {
         console.log("correct"); 
     } else {
         console.log("incorrect"); 
@@ -73,22 +73,22 @@ choices.addEventListener("click", function (event) {
 
 //create second question and choices 
 function isQuestionTwo() {
-    questionsContent.innerHTML = ""; 
-    choicesContent.innerHTML = ""; 
+    questionIntro.innerHTML = ""; 
+    choices.innerHTML = ""; 
 
     var questionEl = document.createElement("h1");
-    questionEl.textContent = myQuestions[1].question;
+    questionEl.textContent = myQuestions[1].questions;
     questionEl.className = "myQuest";
-    questionsContent.append(questionEl);
+    questionIntro.append(questionEl);
 
     for(var i=0; i < myQuestions[1].answers.length; i++) {
         var choices = document.createElement("li"); 
         choices.setAttribute("id", myQuestions[1].answers[i]);
         choices.textContent = myQuestions[1].answers[i];
-        choicesContent.append(answers);
+        choices.append(answers);
     }
     choices.addEventListener("click", function(event) {
-        if(event.target.id ===question[1].correctAnswer) {
+        if(event.target.id === questions[1].correctAnswer) {
             console.log("correct");
     
         }else {
@@ -99,19 +99,19 @@ function isQuestionTwo() {
 }
 //create third question and choices 
 function isQuestionThree() {
-    questionsContent.innerHTML = ""; 
-    choicesContent.innerHTML = ""; 
+    questionIntro.innerHTML = ""; 
+    choices.innerHTML = ""; 
 
     var questionEl = document.createElement("h1"); 
-    questionEl.textContent = myQuestions[2].question; 
+    questionEl.textContent = myQuestions[2].questions; 
     questionEl.className = "myQuest"; 
-    questionsContent.append(questionEl); 
+    questionIntro.append(questionEl); 
 
     for(var i=o; i <myQuestions[2].answers.length; i++) {
         var choices = docuement.createElement("li"); 
         choices.setAttribute("id",myQuestions[2].answers[i]);
         choices.textContent = myQuestions[2].answers[i]; 
-        choicesContent.append(answers);
+        choices.append(answers);
 
     }
     choices.addEventListener("click", function (event) {
@@ -126,19 +126,19 @@ function isQuestionThree() {
 
 //create fourth question and choices
 function isQuestionFour () {
-    questionsContent.innerHTML = "";
-    choicesContent.innerHTML = "";
+    questionIntro.innerHTML = "";
+    choices.innerHTML = "";
 
     var questionEl = document.createElement("h1");
-    questionEl.textContent = myQuestions[3].question; 
+    questionEl.textContent = myQuestions[3].questions; 
     questionEl.className = "myQuest";
-    questionsContent.append(questionEl);
+    questionIntro.append(questionEl);
 
     for(var i=0; i <myQuestions[3].answers.length; i++) {
         var choices = document.createElement("li");
         choices.setAttribute("id", myQuestions[3].answers[i]); 
         choices.textContent = myQuestions[3].answers[i];
-        choicesContent.append(answers);
+        choices.append(answers);
     }
     choices.addEventListener("click", function (event) {
         if(event.target.id === question[3].correctAnswer) {
@@ -152,18 +152,18 @@ function isQuestionFour () {
 
 function endGame() {
     //clears previous page content
-    questionsContent.innerHTML = "";
-    choicesContent.innerHTML = "";
+    questionIntro.innerHTML = "";
+    choices.innerHTML = "";
 
     var questionEl = document.createElement("h1");
     questionEl.textContent = "Quiz Completed!";
     questionEl.className = "myQuest"; 
-    questionsContent.append(questionEl);
+    questionIntro.append(questionEl);
 
     var final = document.createElement("p");
     final.setAttribute("id", "final-score"); 
     final.textContent = "Your final score is ______."; 
-    choicesContent.append(final); 
+    choices.append(final); 
 
     console.log("Quiz complete!"); 
 }
@@ -174,7 +174,7 @@ var countdown = setInterval (function () {
     if(counter === -1) {
         clearInterval(countdown); 
     }
-    timer.textContent = counter; 
+    //timer.textContent = counter; 
 }, 1000); 
   
 
