@@ -4,6 +4,11 @@ body {
 .question{
 	font-weight: 600;
 }
+
+li {
+	cursor: pointer;
+	list-style: none;
+}
 .answers {
     margin-bottom: 20px;
 
@@ -55,15 +60,6 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
-
 #submit{
 	font-family: sans-serif;
 	font-size: 20px;
@@ -77,4 +73,8 @@ body {
 }
 #submit:hover{
 	background-color: #3a8;
+}
+
+.hidden {
+	display: none;
 }
