@@ -92,7 +92,7 @@ function isQuestionOne() {
                 results.textContent = "Correct!"; 
                 score += 20; 
             } else {
-                results.textContent = "Incorrect";
+                results.textContent = "Incorrect!";
                 time -= 10
             }
             console.log(score);
