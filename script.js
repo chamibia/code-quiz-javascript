@@ -89,10 +89,10 @@ function isQuestionOne() {
 
         cEle.addEventListener("click", function (event) {
             if (event.target.id === myQuestions[0].correctAnswer) {
-                results.textContent = "correct"; 
+                results.textContent = "Correct!"; 
                 score += 20; 
             } else {
-                results.textContent = "incorrect";
+                results.textContent = "Incorrect";
                 time -= 10
             }
             console.log(score);
@@ -201,7 +201,7 @@ function endGame() {
     choices.innerHTML = "";
 
     var questionEl = document.createElement("h1");
-    questionEl.textContent = "Quiz Completed! Please type in your name to see your score";
+    questionEl.textContent = "Quiz Completed! Please type your name to see your score";
     questionEl.className = "myQuest"; 
     questionIntro.append(questionEl);
 

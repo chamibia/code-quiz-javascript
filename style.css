@@ -1,80 +1,73 @@
 body {
-	background-color: #297;
-}
-.question{
-	font-weight: 600;
+  background-color: rgb(220, 248, 121);
+  font-style: normal;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-left: 200px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-right: 200px;
 }
 
+#instructions {
+  padding-bottom: 20px;
+  font-size: 25px;
+}
 li {
-	cursor: pointer;
-	list-style: none;
-}
-.answers {
-    margin-bottom: 20px;
-
-}
-#container {
-	display: flex; 
-	flex-direction: column;
-	flex-basis: 20px;
-	height: 100vh;
-
+  cursor: pointer;
+  list-style: none;
+  font-size: 30px;
 }
 
-#title {
-	justify-content: space-between;	
-	flex: 1;
-	margin: 10px auto;
-	width: 20%;
-	height: 10%;
-	font-size: 20px;
-	font-style: bold oblique;
-	color: white; 
-	border: solid 1px black;
-	background-color: darkblue;
+.result-container {
+  color: rebeccapurple;
+  margin-top: 20px;
+  padding-top: 60px;
+}
+
+#start-button {
+  color: rgb(33, 34, 31);
+  font-size: 24px;
+  border-width: 10px;
 }
 #timer {
-	flex-basis: 5px;
-	height: 500px;
+  flex-basis: 5px;
+  height: 500px;
 }
-.time {
-	align-items: flex-end;
-	flex: 1; 
-	text-align: center;
-	margin: 10px auto;
-	width: 20%;
-	height: 100%;
-	font-size: 25px;
-	font-style: bold;
-	color: black;
-	border: solid 1px black;
-}
-
-.startquiz {
-	flex: 3; 
-	padding: 20px;
-	width: 400px;
-	height: 450px;
-	margin: 30px auto;
-	border: solid 2px black;
-
-}
-
-#submit{
-	font-family: sans-serif;
-	font-size: 20px;
-	background-color: #297;
-	color: #fff;
-	border: 0px;
-	border-radius: 3px;
-	padding: 20px;
-	cursor: pointer;
-	margin-bottom: 20px;
-}
-#submit:hover{
-	background-color: #3a8;
+#time {
+  align-items: flex-end;
+  flex: 1;
+  text-align: center;
+  margin: 10px auto;
+  width: 20%;
+  height: 100%;
+  font-size: 25px;
+  font-style: bold;
+  color: black;
+  border: solid 1px black;
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
+.scores-title {
+  font-size: 40px;
+  color: rebeccapurple;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.scores {
+  border-style: groove;
+  border-width: 10px;
+  padding-left: 60px;
+  font-style: oblique;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: gray;
+}
+.completed {
+  font-size: 20px;
+  color: rebeccapurple;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-left: 150px;
+}
+
